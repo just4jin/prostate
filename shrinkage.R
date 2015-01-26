@@ -1,4 +1,3 @@
-
 #*******************************************************************************
 #				Shrinkage Methods: Prostate Data Example
 #*******************************************************************************
@@ -61,10 +60,9 @@ par(mfrow = c(1,1))
 lm.fit <- predict(pros.lm, newdata = pros.test)
 rmse(lm.fit, pros.test[,9])
 
-
-#**************************************
+#*********************************************
 #		Principal Compoents Regression
-#**************************************
+#*********************************************
 library(pls)
 pros.pca <- prcomp(pros.train[,-9])
 # Plot of the principal components
@@ -90,9 +88,9 @@ coefplot(pros.pcr, ncomp = 3, xlab = "Variables", main = "Coefficients for PCR w
 pcr.fit <- predict(pros.pcr, newdata = pros.test[,-9], ncomp = 3, type = "response")
 rmse(pcr.fit, pros.test[,9])
 
-#**************************************
+#*********************************************
 #		Partial Least Squares Regression
-#**************************************
+#*********************************************
 library(pls)
 
 pros.pls  <- plsr(lpsa ~ ., data = pros.train,  ncomp = 8, validation = "CV")
